@@ -27,3 +27,4 @@ A full build is very slow; prefer building only the package you changed, e.g. `s
 
 - `.claude/agents/`: 20 agency-agents subagents (see `.claude/AGENCY-AGENTS.md`).
 - Plugins enabled in `.claude/settings.json`: Ponytail, Agent Skills, Anthropic code-review, and Trail of Bits differential-review, variant-analysis, sharp-edges, insecure-defaults, fp-check.
+- `.claude/skills/graphify/`: Graphify skill (graphifyy 0.9.89). Run `/graphify .` to build a knowledge graph of the repo into `graphify-out/`; `.graphifyignore` keeps key material out of it.
