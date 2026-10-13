@@ -1,22 +1,4 @@
 {
-  "enabledPlugins": {
-    "ponytail@ponytail": true,
-    "agent-skills@addy-agent-skills": true
-  },
-  "extraKnownMarketplaces": {
-    "ponytail": {
-      "source": {
-        "source": "git",
-        "url": "https://github.com/DietrichGebert/ponytail.git"
-      }
-    },
-    "addy-agent-skills": {
-      "source": {
-        "source": "git",
-        "url": "https://github.com/addyosmani/agent-skills.git"
-      }
-    }
-  },
   "permissions": {
     "deny": [
       "Read(./secrets/**)",
@@ -37,5 +19,41 @@
       "Bash(curl * | bash)",
       "Bash(wget * | sh)"
     ]
+  },
+  "enabledPlugins": {
+    "ponytail@ponytail": true,
+    "agent-skills@addy-agent-skills": true,
+    "differential-review@trailofbits": true,
+    "variant-analysis@trailofbits": true,
+    "sharp-edges@trailofbits": true,
+    "insecure-defaults@trailofbits": true,
+    "fp-check@trailofbits": true,
+    "code-review@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/DietrichGebert/ponytail.git"
+      }
+    },
+    "addy-agent-skills": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/addyosmani/agent-skills.git"
+      }
+    },
+    "trailofbits": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/trailofbits/skills.git"
+      }
+    },
+    "claude-plugins-official": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/anthropics/claude-plugins-official.git"
+      }
+    }
   }
 }

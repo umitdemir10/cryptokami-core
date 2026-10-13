@@ -26,4 +26,4 @@ A full build is very slow; prefer building only the package you changed, e.g. `s
 ## Claude setup
 
 - `.claude/agents/`: 20 agency-agents subagents (see `.claude/AGENCY-AGENTS.md`).
-- Plugins enabled in `.claude/settings.json`: Ponytail, Agent Skills.
+- Plugins enabled in `.claude/settings.json`: Ponytail, Agent Skills, Anthropic code-review, and Trail of Bits differential-review, variant-analysis, sharp-edges, insecure-defaults, fp-check.
