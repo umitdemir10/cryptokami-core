@@ -1,0 +1,8 @@
+# Key material must never end up in the knowledge graph.
+secrets/
+*.sk
+*.seed
+*.key
+*.pem
+.env
+.env.*
