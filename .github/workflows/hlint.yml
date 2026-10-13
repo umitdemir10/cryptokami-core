@@ -1,0 +1,31 @@
+name: HLint
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  hlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: haskell-actions/hlint-setup@fe9cd1cd1af94a23900c06738e73f6ddb092966a # v2.4.10
+
+      # Only the .hs files changed by the PR are linted, so existing hints elsewhere don't fail it.
+      - name: Lint changed Haskell files
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git diff --name-only --diff-filter=ACMR -z "$BASE_SHA"...HEAD -- '*.hs' \
+            | grep -zv '^HLint\.hs$' > changed.txt || true
+          if [ ! -s changed.txt ]; then
+            echo "No Haskell files changed."
+            exit 0
+          fi
+          xargs -0 hlint -XTypeApplications --cpp-define=CONFIG=dev < changed.txt
